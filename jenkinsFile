@@ -2,14 +2,14 @@ pipeline {
     agent {
         docker {
             image 'maven:3.9-eclipse-temurin-21'
-             args '-v /root/.m2:/root/.m2 -e HOME=/root'
+            args '-v /var/jenkins_home/.m2:/root/.m2 -e HOME=/root'
         }
     }
 
     environment {
         DEPLOY_DIR = '/home/ubuntu/deployments'
         APP_NAME = 'jenkins-java-app-1.0-SNAPSHOT.jar'
-        APP_PORT = '8080/app'
+        APP_PORT = '8081'
     }
 
     stages {
